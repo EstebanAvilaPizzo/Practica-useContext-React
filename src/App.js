@@ -1,24 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
+import Profile from './components/Profile';
+import UserList from './components/UserList';
+import UserState from './context/User/UserState';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  return ( //dentro del componente UserState deben ir los demas componentes para que puedan usar el estado 
+    <>  
+      <UserState> 
+      <header className='text-center bg-dark text-light p-5'> <h3>React useContext - Ejemplo Practico</h3></header>
+        <main>
+        <div className='container p-4'>
+           <div className='row'>
+              <div className='col-md-7'>
+               <UserList/>
+              </div>
+              <div className='col-md-5'>
+               <Profile/>
+              </div>
+           </div>
+        </div>
+        </main>
+        <footer className='text-center bg-dark text-light p-5'>&copy; consumiendo api reqres.in mediante useContext</footer>
+    </UserState>
+    </>
   );
 }
 
